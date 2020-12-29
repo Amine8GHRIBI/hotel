@@ -29,7 +29,7 @@ public class ClientEntity extends PersonneEntity{
 	
 	
 	@OneToMany(mappedBy = "client",cascade = CascadeType.REMOVE)
-	private List<TelephoneClient> TelephoneClient;
+	private List<TelephoneClient> TelephonesClient;
 	
 	@OneToMany(mappedBy = "client",cascade = CascadeType.REMOVE)
      private List<CommandEntity> commande;

@@ -117,12 +117,12 @@ public class HotelServiceImp1 implements HotelService {
      public ClientEntity CreateClientEntity(ClientEntity client) {
 		  
     	 ClientEntity ClientEntityInBase = reposClient.save(client);
-    	    /*for(TelephoneClient tel : ClientEntityInBase.getTelephoneClient()) {
+    	    for(TelephoneClient tel : ClientEntityInBase.getTelephonesClient()) {
     	    	tel.setClient(ClientEntityInBase); 
     	    	reposTelClient.save(tel);
     	    	
-    	    }*/
-    	 
+    	   
+    	    }
     	 return ClientEntityInBase;
     	 
      }
@@ -171,7 +171,7 @@ public class HotelServiceImp1 implements HotelService {
     	 return res;
      }
          
-     
+
     // ReserverChambre
       public ChambreEntity AjoutChambreReserver(long id ,ChambreEntity chambre) {
           //ReservationEntity resfind = this.findRById(id);

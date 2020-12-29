@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ch.qos.logback.core.net.server.Client;
+import tn.Hotel.Projet.Model.ChambreEntity;
 import tn.Hotel.Projet.Model.ClientEntity;
+import tn.Hotel.Projet.Model.ReservationEntity;
 import tn.Hotel.Projet.Model.TelephoneClient;
 import tn.Hotel.Projet.Service.HotelService;
 
@@ -39,7 +41,16 @@ public class controller {
 	 }
     @GetMapping("/reservation")
     public String showResForm(Model model) {
+    	ReservationEntity res = new ReservationEntity();
+    	model.addAttribute("reser", res);
     	return "reservation";
+    }
+    
+    @GetMapping("/room")
+    public String showRoomForm(Model model) {
+    	ChambreEntity ch = new ChambreEntity();
+    	model.addAttribute("CHAM", ch);
+    	return "room";
     }
     
     @GetMapping("/login")
@@ -50,20 +61,7 @@ public class controller {
         
     }
     
-    @RequestMapping(value="/register", params={"addRow"})
-    public String addRow(final ClientEntity client, final BindingResult bindingResult) {
-    	client.getTelephoneClient().add(new TelephoneClient());
-        return "register";
-    }
-
-    @RequestMapping(value="/register", params={"removeRow"})
-    public String removeRow(
-            final ClientEntity client, final BindingResult bindingResult, 
-            final HttpServletRequest req) {
-        final Integer rowId = Integer.valueOf(req.getParameter("removeRow"));
-        client.getTelephoneClient().remove(rowId.intValue());
-        return "register";
-    }
+   
     
     
 

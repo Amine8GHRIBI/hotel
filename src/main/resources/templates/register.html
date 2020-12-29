@@ -44,11 +44,18 @@
 							    <label for="pwd">Mot de passe client:</label>
 							    <input type="password" class="form-control" id="pwd"  th:field="*{motdepasseclient}"/>
 							  </div>
-							  
-							  <div class="form-group">
-	
 							   
-							  
+ 
+                              <div class="form-group">
+     
+    
+                               <form th:action="@{/TelInsert}" th:object="${TelephoneClient}" method="post">
+                               Numero: <input type="text" name="numero" id ="pwd" >    
+                               Operator: <input type="text" name="operator" id="pwd">        
+                    
+                                  <button type="submit"  id="registeBtn" class="btn btn-danger">INSERT</button>
+                                 </form>   
+						 	  </div>
 							  <button type="submit" id="registeBtn" class="btn btn-danger">Register</button>
 							  
 							   </form>
